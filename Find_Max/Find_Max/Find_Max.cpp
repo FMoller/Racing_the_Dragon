@@ -2,7 +2,10 @@
 //
 
 #include <iostream>
-#include <algorithm> 
+#include <algorithm>
+#include <stdlib.h>
+
+extern C find_maxasm(float* val, int len);
 
 float get_max(float *val, int len) {
     if (len == 0) {

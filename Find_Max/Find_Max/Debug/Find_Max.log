@@ -1,3 +1,6 @@
-﻿  Find_Max.cpp
-C:\Users\frede\Documents\GitHub\Racing_the_Dragon\Find_Max\Find_Max\Find_Max.cpp(20,47): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Find_Max.vcxproj -> C:\Users\frede\Documents\GitHub\Racing_the_Dragon\Find_Max\Debug\Find_Max.exe
+﻿  Assembling find_maxasm.asm...
+  Find_Max.cpp
+C:\Users\frede\Documents\GitHub\Racing_the_Dragon\Find_Max\Find_Max\Find_Max.cpp(8,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\frede\Documents\GitHub\Racing_the_Dragon\Find_Max\Find_Max\Find_Max.cpp(8,10): error C2146: syntax error: missing ';' before identifier 'find_maxasm'
+C:\Users\frede\Documents\GitHub\Racing_the_Dragon\Find_Max\Find_Max\Find_Max.cpp(8,42): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\frede\Documents\GitHub\Racing_the_Dragon\Find_Max\Find_Max\Find_Max.cpp(23,47): warning C4305: 'initializing': truncation from 'double' to 'float'
