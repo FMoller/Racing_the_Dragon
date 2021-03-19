@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <algorithm> 
 
 float get_max(float *val, int len) {
     if (len == 0) {
@@ -17,8 +18,11 @@ float get_max(float *val, int len) {
 int main()
 {
     float teste[6] = { 0.1,0.2,1.0,1.1,0.2,0.1};
-    float p = get_max(teste,4);
-    printf("Maximo %f \n", p);
+    float p = get_max(teste,6);
+    float* g;
+    g = std::max_element(teste,teste+6);
+    std::cout << "Maximo: " << p << "\n";
+    std::cout << "Maximo2: " << *g;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
