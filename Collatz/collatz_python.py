@@ -13,4 +13,15 @@ def r_collatz(n,c_list):
         else:
             r_collatz(3*n+1,c_list)
 
+
+def r_collatz_2(n,c_list):
+    c_list.append(n)
+    if n>1:
+        if n%2==1:
+            n = 3*n+1
+            c_list.append(n)
+        r_collatz(n/2,c_list)
+        
+        
+
     
