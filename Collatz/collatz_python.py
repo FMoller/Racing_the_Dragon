@@ -31,6 +31,15 @@ def i_collatz(n,c_list):
             n=3*n+1
     c_list.append(n)
 
+def i_collatz2(n,c_list):
+    while(n>1):
+        c_list.append(n)
+        if n%2==1:
+            n=3*n+1
+            c_list.append(n)
+        n=n/2
+    c_list.append(n)
+
     
         
         
