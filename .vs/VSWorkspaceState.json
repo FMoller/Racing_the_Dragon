@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\image2ascii",
+    "\\image2ascii\\python"
   ],
+  "SelectedNode": "\\image2ascii\\python\\img2ascii.py",
   "PreviewInSolutionExplorer": false
 }
