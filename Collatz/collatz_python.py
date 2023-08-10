@@ -7,6 +7,7 @@ __author__ = 'Frederico Moeller'
 
 import time
 import numpy as np
+import sys
 
 def r_collatz(n,c_list):
     c_list.append(n)
@@ -43,6 +44,7 @@ def i_collatz2(n,c_list):
         n=n/2
     c_list.append(n)
 
+"""
 test_val = np.array([744, 340, 480, 679, 227, 996, 984, 753, 931, 679, 325, 939, 153,
        529, 535, 914, 804, 746, 453,  58, 668, 406, 217, 254, 830, 530,
        867, 983, 149, 306, 852, 398, 229, 736,   9, 406, 184, 377, 322,
@@ -60,7 +62,25 @@ for i in test_val:
     rcltz.append(r_collatz(i,c_list))
     ed_time = time.perf_counter()
     rcltz.append(ed_time - st_time)
-    
+ """
+
+def main():
+    """
+    arg1 = csv file with the data
+    arg2 = function type:
+        1 - r_collatz_2
+        2 - i_collatz
+        3 - i_collatz2
+        default - r_collatz
+    arg3 = log_file
+    arg4 = output_times
+    """
+    args = sys.argv
+    print(args)
+
+
+if __name__ == "__main__":
+        main()
     
     
         
