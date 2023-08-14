@@ -7,6 +7,7 @@ __author__ = 'Frederico Moeller'
 
 import time
 import numpy as np
+import pandas as pd
 import sys
 
 def r_collatz(n,c_list):
@@ -77,6 +78,15 @@ def main():
     """
     args = sys.argv
     print(args)
+    if (len(args)>1):
+        bcmk = pd.read_csv(args[1],header = None)
+        q_rows = len(bcmk)
+        for i in range(q_rows):   
+            row = bcmk.loc[i,:]
+            for j in range(len(row)):
+                pass
+    else:
+        pass
 
 
 if __name__ == "__main__":
