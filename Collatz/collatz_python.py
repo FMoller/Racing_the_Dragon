@@ -9,6 +9,7 @@ import time
 import numpy as np
 import pandas as pd
 import sys
+from timeit import default_timer as timer
 
 def r_collatz(n,c_list):
     c_list.append(n)
@@ -77,16 +78,31 @@ def main():
     arg4 = output_times
     """
     args = sys.argv
-    print(args)
-    if (len(args)>1):
+    #print(args)
+    if (len(args)>2):
         bcmk = pd.read_csv(args[1],header = None)
         q_rows = len(bcmk)
+        bcmk_times = []
+        bcmk_sol = dict()
+        start = timer()
+        end = timer()
         for i in range(q_rows):   
             row = bcmk.loc[i,:]
+            total_row_time = 0
             for j in range(len(row)):
-                pass
+                collatz_list = []
+                if int(args[2]) == 1:
+                    start = timer()
+                    r_collatz_2(row[j],collatz_list)
+                    end = timer()
+                    total_row_time += (end-start)
+                bcmk_sol[row[j]] = collatz_list
+            bcmk_times.append(total_row_time)
+                    
     else:
         pass
+    #print(bcmk_sol)
+    print(bcmk_times)
 
 
 if __name__ == "__main__":
