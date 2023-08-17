@@ -37,7 +37,7 @@ def i_collatz(n,c_list):
             n=3*n+1
     c_list.append(n)
 
-def i_collatz2(n,c_list):
+def i_collatz_2(n,c_list):
     while(n>1):
         c_list.append(n)
         if n%2==1:
@@ -72,7 +72,7 @@ def main():
     arg2 = function type:
         1 - r_collatz_2
         2 - i_collatz
-        3 - i_collatz2
+        3 - i_collatz_2
         default - r_collatz
     arg3 = log_file
     arg4 = output_times
@@ -94,6 +94,11 @@ def main():
                 if int(args[2]) == 1:
                     start = timer()
                     r_collatz_2(row[j],collatz_list)
+                    end = timer()
+                    total_row_time += (end-start)
+                if int(args[2]) == 1:
+                    start = timer()
+                    i_collatz(row[j],collatz_list)
                     end = timer()
                     total_row_time += (end-start)
                 bcmk_sol[row[j]] = collatz_list
