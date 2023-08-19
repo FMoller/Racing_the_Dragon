@@ -96,9 +96,14 @@ def main():
                     r_collatz_2(row[j],collatz_list)
                     end = timer()
                     total_row_time += (end-start)
-                if int(args[2]) == 1:
+                elif int(args[2]) == 1:
                     start = timer()
                     i_collatz(row[j],collatz_list)
+                    end = timer()
+                    total_row_time += (end-start)
+                elif int(args[3]) == 1:
+                    start = timer()
+                    i_collatz_2(row[j],collatz_list)
                     end = timer()
                     total_row_time += (end-start)
                 bcmk_sol[row[j]] = collatz_list
