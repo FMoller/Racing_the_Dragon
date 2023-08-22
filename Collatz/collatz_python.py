@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import sys
 from timeit import default_timer as timer
+import datetime
 
 def r_collatz(n,c_list):
     c_list.append(n)
@@ -74,7 +75,7 @@ def main():
         2 - i_collatz
         3 - i_collatz_2
         default - r_collatz
-    arg3 = log_file
+    arg3 = log_dir
     arg4 = output_times
     """
     args = sys.argv
@@ -86,6 +87,7 @@ def main():
         bcmk_sol = dict()
         start = timer()
         end = timer()
+        log_text = str(datetime.datetime.now()) + '\n' + str(args) + '\n\n'
         for i in range(q_rows):   
             row = bcmk.loc[i,:]
             total_row_time = 0
@@ -101,18 +103,24 @@ def main():
                     i_collatz(row[j],collatz_list)
                     end = timer()
                     total_row_time += (end-start)
-                elif int(args[3]) == 1:
+                elif int(args[2]) == 1:
                     start = timer()
                     i_collatz_2(row[j],collatz_list)
                     end = timer()
                     total_row_time += (end-start)
-                else
+                else:
                     start = timer()
                     r_collatz(row[j],collatz_list)
                     end = timer()
                     total_row_time += (end-start)
                 bcmk_sol[row[j]] = collatz_list
             bcmk_times.append(total_row_time)
+        log_text += 'bcmk_times: \n' + str(bcmk_times) + '\n\n'
+        log_text += 'results: \b' + str(bcmk_sol)
+        fname = args[3] + 'python_collatz_'+str(int(time.time()))+'.txt'
+        f = open(fname,'a')
+        f.write(log_text)
+        f.close()
                     
     else:
         pass
