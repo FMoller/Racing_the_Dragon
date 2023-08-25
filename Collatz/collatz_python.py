@@ -81,6 +81,7 @@ def main():
     args = sys.argv
     #print(args)
     if (len(args)>2):
+        print(args)
         bcmk = pd.read_csv(args[1],header = None)
         q_rows = len(bcmk)
         bcmk_times = []
@@ -88,6 +89,7 @@ def main():
         start = timer()
         end = timer()
         log_text = str(datetime.datetime.now()) + '\n' + str(args) + '\n\n'
+        out_times = 'python,' + datetime.datetime.now().strftime('%Y.%m.%d')+','+str(timer())+','+args[2]
         for i in range(q_rows):   
             row = bcmk.loc[i,:]
             total_row_time = 0
@@ -121,11 +123,18 @@ def main():
         f = open(fname,'a')
         f.write(log_text)
         f.close()
+        for i in bcmk_times:
+            out_times += ',' + str(i)
+        out_times += '\n'
+        gname = args[4] + args[1][:args[1].find('.')]+'_times.csv'
+        g = open(gname,'a')
+        g.write(out_times)
+        g.close()
                     
     else:
         pass
     #print(bcmk_sol)
-    print(bcmk_times)
+    #print(bcmk_times)
 
 
 if __name__ == "__main__":
